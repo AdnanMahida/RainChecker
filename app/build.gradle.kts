@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ad.composemvvmstarter"
+    namespace = "com.ad.rainchecker"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.ad.composemvvmstarter"
+        applicationId = "com.ad.rainchecker"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
@@ -40,45 +40,45 @@ android {
         productFlavors {
             create("stage") {
                 dimension = "environment"
-                applicationId = "com.ad.mvvmstarter.stage"
+                applicationId = "com.ad.rainchecker.stage"
                 buildConfigField(
-                    "String", "BASE_URL", "\"https://api.restful-api.dev/\""
+                    "String", "BASE_URL", "\"https://api.openweathermap.org/\""
                 )
                 buildConfigField(
                     type = "String",
-                    name = "CLOUDFRONT_URL",
-                    value = "\"https://assets-stage-server.com/\""
+                    name = "OPEN_WEATHER_API_KEY",
+                    value = "\"YOUR_API_KEY\""
                 )
                 resValue(
                     "string",
                     "app_name",
-                    "StarterTemplateStage"
+                    "Rain Checker"
                 )
                 setProperty(
                     "archivesBaseName",
-                    "StarterTemplate_V${defaultConfig.versionName}_${getCurrentDate()}"
+                    "RainChecker_V${defaultConfig.versionName}_${getCurrentDate()}"
                 )
             }
 
             create("production") {
                 dimension = "environment"
-                applicationId = "com.ad.mvvmstarter"
+                applicationId = "com.ad.rainchecker"
                 buildConfigField(
-                    "String", "BASE_URL", "\"https://api.restful-api.dev/\""
+                    "String", "BASE_URL", "\"https://api.openweathermap.org/\""
                 )
                 buildConfigField(
                     type = "String",
-                    name = "CLOUDFRONT_URL",
-                    value = "\"https://assets-live-server.com/\""
+                    name = "OPEN_WEATHER_API_KEY",
+                    value = "\"YOUR_API_KEY\""
                 )
                 resValue(
                     "string",
                     "app_name",
-                    "StarterTemplate"
+                    "Rain Checker"
                 )
                 setProperty(
                     "archivesBaseName",
-                    "StarterTemplate_V${defaultConfig.versionName}_${getCurrentDate()}"
+                    "RainChecker_V${defaultConfig.versionName}_${getCurrentDate()}"
                 )
             }
         }
@@ -122,6 +122,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
+    implementation("androidx.compose.material3:material3-window-size-class:1.1.1")
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Hilt
@@ -132,6 +133,9 @@ dependencies {
     ksp(libs.hilt.compiler)
     ksp(libs.hilt.ext.compiler)
 
+    // Location Services
+    implementation("com.google.android.gms:play-services-location:20.0.0")
+
     // retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -139,11 +143,6 @@ dependencies {
 
     //Timber
     implementation(libs.timber)
-
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
 
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)

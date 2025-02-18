@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StarterTemplate"
+rootProject.name = "RainChecker"
 include(":app")
  
