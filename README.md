@@ -59,8 +59,9 @@ This project uses the following **core libraries**:
 ## 📌 Setup & Installation
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-repo/android-mvvm-app.git
-   cd android-mvvm-app
+   git clone
+https://github.com/AdnanMahida/AndroidMVVMComposeStarter.git
+   cd AndroidMVVMComposeStarter
    ```
 2. **Open the project in Android Studio.**
 3. **Sync Gradle:** Click `Sync Now` when prompted.
