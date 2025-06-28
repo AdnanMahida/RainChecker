@@ -8,6 +8,9 @@ for API calls etc**.
 
 ---
 
+For Demo download [APK](Apk/RainChecker_V1.0_28_06_2025-production-debug.apk)
+
+
 ## 📦 Dependencies & Versions
 
 Below are the key dependencies and their respective versions used in this project:
